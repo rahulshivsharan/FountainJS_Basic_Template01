@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="app">
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -22,8 +22,36 @@
   </head>
 
 
-  <body ng-app="app">
-    <ui-view></ui-view>
+  <body class="hold-transition skin-blue layout-top-nav">
+    <div class="wrapper">
+
+        <render-header></render-header>
+
+        <!-- Full Width Column -->
+        <div class="content-wrapper" style="height: 100vh">
+          
+          <div class="container">
+            <!-- Main content -->
+            <section class="content">
+              <ui-view></ui-view>  
+            </section>
+            <!-- /.content -->           
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+          <div class="container">
+            <div class="pull-right hidden-xs">
+              <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2014-2017 <a href="http://duretechnologies.com/">Dure Technologies</a>.</strong> All rights
+            reserved.
+          </div>
+          <!-- /.container -->
+        </footer>
+      </div>
+      <!-- ./wrapper -->    
   </body>
 
   <!-- build:js({.tmp,src}) scripts/vendor.js -->  

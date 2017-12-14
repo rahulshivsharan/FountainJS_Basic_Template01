@@ -6,6 +6,6 @@
 
 	function homeController($scope){
 		var vm = this;
-		vm.message = "RTM Pro";
+		vm.message = "iMonitor";
 	} // end of homeController
 })();

@@ -5,7 +5,9 @@
 	
 	angular.module('app', [
 		'ui.router', // pluggin modules
-		'homeModule' // user defined modules
+		'headerModule',// user defined modules
+		'homeModule',
+		'smartSetup' 
 	]);	
 })();
 
