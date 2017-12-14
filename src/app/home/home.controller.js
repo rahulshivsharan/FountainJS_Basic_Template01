@@ -6,6 +6,6 @@
 
 	function homeController($scope){
 		var vm = this;
-		vm.message = "Hi, its Main Page";
+		vm.message = "RTM Pro";
 	} // end of homeController
 })();
