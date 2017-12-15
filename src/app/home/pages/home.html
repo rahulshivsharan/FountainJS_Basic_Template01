@@ -1,4 +1,28 @@
-<div controller="homeController as vm">
-	<h1>{{ vm.message }}</h1>	
-</div>
+<div class="wrapper">
+        <render-header></render-header>
 
+        <!-- Full Width Column -->
+        <div class="content-wrapper" style="height: 100vh">
+          
+          <div class="container">
+            <!-- Main content -->
+            <section class="content">
+            	
+
+            	<div class="row">
+      					<div class="col-md-12">
+      						<div controller="homeController as vm">
+      							<h1>{{ vm.message }}</h1>	
+      						</div>
+      					</div>
+				      </div>
+
+            </section>
+            <!-- /.content -->           
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.content-wrapper -->
+    
+</div>
+<!-- ./wrapper -->
