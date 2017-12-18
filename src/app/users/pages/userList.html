@@ -1,0 +1,38 @@
+<div class="wrapper">
+        <render-header></render-header>
+
+        <!-- Full Width Column -->
+        <div class="content-wrapper" style="height: 100vh">
+          
+          <div class="container" ng-init="vm.init()">
+            <!-- Main content -->
+            <section class="content">
+            	
+
+            	<div class="row">
+      					<div class="col-md-12">
+      						  <table class="table table-bordered">
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User Name</th>
+                      </tr>
+                       <tr ng-repeat="user in vm.userList">
+                         <td>{{user.firstName}}</td>
+                         <td>{{user.lastName}}</td>
+                         <td>{{user.username}}</td>
+                       </tr> 
+                    </table>
+      					</div>
+      				</div>
+
+            </section>
+            <!-- /.content -->           
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.content-wrapper -->
+    
+</div>
+<!-- ./wrapper -->
+
