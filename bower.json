@@ -25,6 +25,12 @@
         "dist/css/AdminLTE.min.css",
         "dist/css/skins/_all-skins.min.css"
       ]
-    }
+    },
+	"angular-ui-router":{
+		"main" : [
+			"release/angular-ui-router.min.js",
+			"release/stateEvents.min.js"
+		]
+	}
   }
 }

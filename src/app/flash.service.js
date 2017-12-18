@@ -3,9 +3,9 @@
 
 	angular.module("app").factory("FlashService",FlashService);
 
-	FlashService.$inject = ["$rootScope"];
+	FlashService.$inject = ["$rootScope","$state"];
 
-	function FlashService($rootScope){
+	function FlashService($rootScope,$state){
 		var service = {};
 
 		service.Success = Success;
@@ -31,11 +31,12 @@
 
 		function initService(){
 			var clearFlashMessage = clearFlashMessage;
-			$rootScope.$on("$locationChangeStart",function(){
+			$rootScope.$on("$stateChangeStart",function(){				
 				clearFlashMessage();
 			});
 
 			function clearFlashMessage(){
+				console.log("Clear Flash ");
 				var flag = $rootScope.flash;
 				if(flash){
 					if(!flash.keepAfterLocationChange){
