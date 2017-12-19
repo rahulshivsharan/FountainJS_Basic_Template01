@@ -6,6 +6,7 @@
 	angular.module('app', [
 		'ui.router', // pluggin modules
 		'ui.router.state.events',
+		'ui.bootstrap',
 		'ngCookies',
 		'headerModule',// user defined modules
 		'loginModule',
@@ -27,12 +28,12 @@
         }
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {        	
-            // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray(fromState.name, ['login', 'register',""]) === -1;
+            // redirect to login page if not logged in and trying to access a restricted page            
+            var restrictedPage = $.inArray(fromState.name, ['login', 'register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;            
             if (restrictedPage && (!angular.isDefined(loggedIn) || !loggedIn)) {
                 event.preventDefault();
-                $state.go('login');                
+                $state.transitionTo('login',{},{notify : false});                
             }
         });
         

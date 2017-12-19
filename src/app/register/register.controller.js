@@ -7,7 +7,13 @@
 	function registerController($scope,$state,UserService,FlashService){
 		var vm = this;
 
+		// public variables
+		vm.popupdate = {};
+		vm.popupdate.open = false;
+
+		// public methods
 		vm.register = register;
+		vm.openDate = openDate;
 
 		function register(){
 			vm.dataLoading = true;
@@ -24,5 +30,9 @@
 				}
 			} // end of responseFn
 		} // end of register
+
+		function openDate(){
+			vm.popupdate.open = true;
+		}
 	} // end of registerController
 })();
