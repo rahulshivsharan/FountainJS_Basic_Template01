@@ -13,6 +13,11 @@
 
 		var initService = initService;
 
+		initService();
+
+		return service;
+
+
 		function Error(message, keepAfterLocationChange){
 			$rootScope.flash = {
 				message : message,
@@ -31,13 +36,12 @@
 
 		function initService(){
 			var clearFlashMessage = clearFlashMessage;
-			$rootScope.$on("$stateChangeStart",function(){				
+			$rootScope.$on("$stateChangeStart",function(event, toState, toParams, fromState, fromParams){								
 				clearFlashMessage();
 			});
 
-			function clearFlashMessage(){
-				console.log("Clear Flash ");
-				var flag = $rootScope.flash;
+			function clearFlashMessage(){				
+				var flash = $rootScope.flash;
 				if(flash){
 					if(!flash.keepAfterLocationChange){
 						delete $rootScope.flash;
@@ -48,7 +52,6 @@
 				} // end of if
 			} // end of clearFlashMessage
 		} // end of initService
-
-		return service;
+		
 	} // end of FlashService
 })();

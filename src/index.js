@@ -26,13 +26,13 @@
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
         }
 
-        $rootScope.$on('$stateChangeStart', function (event, next, current) {
-        	//console.log("State is changes ");
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {        	
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($state.$current, ['/login', '/register']) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            if (restrictedPage && !loggedIn) {
-                $state.go('login');
+            var restrictedPage = $.inArray(fromState.name, ['login', 'register',""]) === -1;
+            var loggedIn = $rootScope.globals.currentUser;            
+            if (restrictedPage && (!angular.isDefined(loggedIn) || !loggedIn)) {
+                event.preventDefault();
+                $state.go('login');                
             }
         });
         
