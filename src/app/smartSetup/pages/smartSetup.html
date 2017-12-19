@@ -11,13 +11,45 @@
 
             	<div class="row">
       					<div class="col-md-12">
-      						<form class="form-horizontal">
-      							<div class="form-group">
-      								<label for="" class="col-md-2 control-label">Application Name</label>
-      								<div class="col-md-10">
-      									<input type="text">
+      						<form class="form-horizontal" name="applicationForm" 
+                        ng-submit="applicationForm.$valid && vm.createApplication()" novalidate>
+      							
+                    <div class="form-group"><!-- application name -->
+      								<label for="applicationName" class="col-md-2 control-label">Application Name</label>
+      								<div class="col-md-5">
+      									<input type="text" ng-model="vm.applicationName" id="applicationName" name="applicationName" required class="form-control"/>
+
+                        <div ng-show="applicationForm.$submitted" class="form_error">
+                          <div ng-show="applicationForm.applicationName.$error.required">Cannot be empty</div>
+                        </div>
       								</div>
-      							</div>
+      							</div><!-- application name -->
+
+                    <div class="form-group"><!-- Select Template -->
+                      <label for="templateName" class="col-md-2 control-label">
+                        <input type="radio"  ng-model="vm.isTemplateSelected" /> Select Template
+                      </label>
+                      <div class="col-md-5">
+                        <input type="text" ng-model="vm.templateName" id="templateName" name="templateName" required class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="form-group"><!-- Select Template -->
+                      <div class="col-md-1">
+                        <input type="radio"  ng-model="vm.isSmartSetup" /> 
+                      </div>
+                      <div class="col-md-2">
+                        <label for="templateName" class="control-label">Select Smart-Setup</label>
+                      </div>
+                      <div class="col-md-5">&nbsp;</div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-offset-2 col-md-5">
+                        <button type="submit" class="btn btn-primary">Next</button>  
+                      </div>                      
+                    </div>
+                    
       						</form>
       					</div>
       				</div>
