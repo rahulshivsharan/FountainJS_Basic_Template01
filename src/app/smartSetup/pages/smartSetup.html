@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" ng-init="vm.init()">
         <render-header info="true"></render-header>
 
         <!-- Full Width Column -->
@@ -8,8 +8,8 @@
             <!-- Main content -->
             <section class="content">
             	
-
-
+              <render-breadcrumb></render-breadcrumb>
+              <br/><br/>
             	<div class="row">
       					<div class="col-md-12">
       						<form class="form-horizontal" name="applicationForm" 
@@ -48,6 +48,20 @@
                       <div class="col-md-5">
                         <input type="text" ng-model="vm.smartSetup" id="smartSetup" name="smartSetup" class="form-control" ng-hide="true" />
                       </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="selectCountry" class="col-md-2 control-label">Select Country</label>
+                      <div class="col-md-5">
+                        <input type="text" ng-model="vm.selectedCountry" class="form-control" id="selectCountry" name="selectCountry" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="selectLanguage" class="col-md-2 control-label">Select Language</label>
+                      <div class="col-md-5">
+                        <input type="text" ng-model="vm.languageChoosen" class="form-control" id="selectLanguage" name="selectLanguage" />
+                      </div>
                     </div>                    
 
                     <div class="form-group">
@@ -55,8 +69,7 @@
                         <button type="submit" class="btn btn-primary">Next</button>  
                       </div>                      
                     </div>
-                    
-                    <div render-breadcrumb ng-if="vm.templateSelection === 'smartSetup'"></div>
+
       						</form>
       					</div>
       				</div>
