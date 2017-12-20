@@ -10,13 +10,14 @@
 
 		// public variables
 		vm.applicationName = "";
-		vm.isTemplateSelected = false;
+		vm.templateSelection = "template";
 
 		// public methods
 		vm.createApplication = createApplication;
 
 		function createApplication(){
 			console.log("applicationName ",vm.applicationName);
+			console.log("Template-Selection ",vm.templateSelection)
 		} // createApplication
 	} // end of smartSetupController
 })();

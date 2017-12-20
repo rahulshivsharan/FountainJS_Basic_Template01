@@ -9,6 +9,7 @@
             <section class="content">
             	
 
+
             	<div class="row">
       					<div class="col-md-12">
       						<form class="form-horizontal" name="applicationForm" 
@@ -27,22 +28,27 @@
 
                     <div class="form-group"><!-- Select Template -->
                       <label for="templateName" class="col-md-2 control-label">
-                        <input type="radio"  ng-model="vm.isTemplateSelected" /> Select Template
+                        <input type="radio"  ng-model="vm.templateSelection" value="template" /> Select Template
                       </label>
                       <div class="col-md-5">
-                        <input type="text" ng-model="vm.templateName" id="templateName" name="templateName" required class="form-control" />
+                        <input type="text" ng-model="vm.templateName" id="templateName" 
+                              name="templateName" 
+                              ng-required="vm.templateSelection === 'template'" class="form-control" />
+
+                        <div ng-show="applicationForm.$submitted" class="form_error">
+                          <div ng-show="applicationForm.templateName.$error.required">Cannot be empty</div>
+                        </div>                       
                       </div>
                     </div>
 
-                    <div class="form-group"><!-- Select Template -->
-                      <div class="col-md-1">
-                        <input type="radio"  ng-model="vm.isSmartSetup" /> 
+                    <div class="form-group">
+                      <label for="smartSetup" class="col-md-2 control-label" style="padding-right:0">
+                        <input type="radio"  ng-model="vm.templateSelection" value="smartSetup" /> Select Smart-Setup
+                      </label>
+                      <div class="col-md-5">
+                        <input type="text" ng-model="vm.smartSetup" id="smartSetup" name="smartSetup" class="form-control" ng-hide="true" />
                       </div>
-                      <div class="col-md-2">
-                        <label for="templateName" class="control-label">Select Smart-Setup</label>
-                      </div>
-                      <div class="col-md-5">&nbsp;</div>
-                    </div>
+                    </div>                    
 
                     <div class="form-group">
                       <div class="col-md-offset-2 col-md-5">
@@ -50,6 +56,7 @@
                       </div>                      
                     </div>
                     
+                    <div render-breadcrumb ng-if="vm.templateSelection === 'smartSetup'"></div>
       						</form>
       					</div>
       				</div>
